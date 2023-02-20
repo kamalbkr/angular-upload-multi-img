@@ -1,0 +1,16 @@
+<input
+  accept="image/*"
+  multiple
+  hidden
+  #inputfile
+  type="file"
+  (change)="onFileChange($event.target)"
+/>
+<button mat-raised-button color="primary" (click)="upload(inputfile)">
+  Upload images ({{files.length}})
+</button>
+<mat-divider></mat-divider>
+<div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="15px">
+   <app-preview-image *ngFor="let file of files" [image]="file" (save) ="saveFile($event)" (delete)="deleteFile($event)" ></app-preview-image>
+ </div>
+ 

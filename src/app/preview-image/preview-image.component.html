@@ -1,0 +1,31 @@
+<mat-card class="uploader-panel">
+  <!-- <mat-card-subtitle></mat-card-subtitle>
+<mat-card-title></mat-card-title> -->
+  <mat-card-content>
+    <img
+      [class.onLoading]="onLoading"
+      class="uploading-not-completed"
+      [src]="domSanitizer.bypassSecurityTrustUrl(imageData?.base64)"
+      alt=""
+    />
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-actions>
+    <span fxLayout="row" fxLayoutAlign="center center">
+      <span fxFlex class="error-message" *ngIf="imageData?.isLarge"
+        >Maximum size is 400 Kb
+      </span>
+      <span fxFlex></span>
+      <button mat-icon-button (click)="setDataImage()" *ngIf="imageData?.error"> 
+        <mat-icon>refresh</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteImage()"><mat-icon>delete</mat-icon></button></span
+    >
+  </mat-card-actions>
+  <mat-card-footer>
+    <mat-progress-bar
+      *ngIf="imageData?.percent && !imageData?.isLarge"
+      mode="indeterminate"
+    ></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

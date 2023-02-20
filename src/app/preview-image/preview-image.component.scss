@@ -1,0 +1,27 @@
+.uploader-panel {
+  width: 200px;
+  height: 200px;
+  margin-top: 8px;
+  border: 1px #ccc solid;
+  mat-card-content {
+    height: 70%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  img.uploading-not-completed::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: black;
+  }
+  img.onLoading {
+    opacity: 0.5;
+  }
+  .error-message {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}

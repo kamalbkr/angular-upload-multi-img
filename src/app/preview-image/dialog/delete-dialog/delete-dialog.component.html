@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<hr>
+<mat-dialog-content>
+  <div fxLayout="row" fxLayoutGap="10px">
+    <img width="65" height="65" [src]="domSanitizer.bypassSecurityTrustUrl(data?.image64)" alt="">
+    <span fxLayoutAlign="center center">{{data.message}}</span>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button  mat-raised-button mat-dialog-close >No</button>
+    <button mat-raised-button color="primary" (click)="delete()">Yes</button>
+</mat-dialog-actions>
